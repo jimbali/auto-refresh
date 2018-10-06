@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+  </head>
+  <body>
+  	<label>Text to find: <input id="search-text" type="text"></label>
+	<label>Cookie to clear: <input id="cookie-to-clear" type="text"></label>
+	<button id="start-refreshing">Start Refreshing</button>
+    <button id="stop-refreshing">Stop Refreshing</button>
+  </body>
+</html>
+
