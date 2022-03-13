@@ -13,22 +13,20 @@ document.addEventListener('DOMContentLoaded', function() {
             onTextChanged(e);
         } else if (e.target.id == 'cookie-to-clear') {
             backgroundPage.cookieToClear = e.target.value;
+        } else if (e.target.id == 'rpm') {
+            backgroundPage.maxRate = e.target.value;
         }
     }, false);
-    updateSearchText(backgroundPage.selectedText ? backgroundPage.selectedText : "");
-    updateCookieText(backgroundPage.cookieToClear ? backgroundPage.cookieToClear : "");
+    updateElement(backgroundPage.selectedText ? backgroundPage.selectedText : "", 'search-text');
+    updateElement(backgroundPage.cookieToClear ? backgroundPage.cookieToClear : "", 'cookie-to-clear');
+    updateElement(backgroundPage.maxRate ? backgroundPage.maxRate : "", 'rpm');
 });
 
-function updateSearchText(txt) {
-    document.getElementById('search-text').value = txt;
-}
-
-function updateCookieText(txt) {
-    document.getElementById('cookie-to-clear').value = txt;
+function updateElement(txt, elementId) {
+    document.getElementById(elementId).value = txt;
 }
 
 function onTextChanged(e) {
     var backgroundPage = chrome.extension.getBackgroundPage();
     backgroundPage.selectedText = e.target.value;
 }
-
